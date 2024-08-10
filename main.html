@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <style>
+        p{
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .dishes{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .pricebtn{
+            font-size: 20px;
+            background-color: burlywood;
+        }
+        .btns{
+            display: flex;
+            justify-content: center;
+            margin-top: 5vh;
+        }
+        .totalbtn{
+            font-size: 20px;
+            background-color: cadetblue;
+            margin-right: 5vw;
+        }
+        .cancelbtn{
+            font-size: 20px;
+            background-color:mediumseagreen;
+        }
+    </style>
+</head>
+<body>
+    <p>Restaurant</p>
+<div class="dishes">
+    <div>
+    <img src="pictures/chicken.jpeg" alt="">
+    </div>
+    <div>
+        <img src="pictures/steak.jpeg" alt="">
+    </div>
+    <div>
+        <img src="pictures/fish.jpeg" alt="">
+    </div>
+    <div>
+        <img src="pictures/salad.jpeg" alt="">
+    </div>
+    <div>
+        <img src="pictures/pasta.jpeg" alt="">
+    </div>
+</div>
+<div class="buttons">
+    <button class="pricebtn" onclick="
+        console.log('This costs 300epg')
+        
+        ">300egp</button>
+    <button onclick="
+    console.log('This costs 500egp');
+    totalcost+=500;
+    console.log(`Total price = ${totalcost}`);
+    " class="pricebtn">500egp</button>
+
+    <button onclick="
+    console.log('This costs 350egp');
+    totalcost+=350;
+    console.log(`Total price = ${totalcost}`);
+
+    " class="pricebtn">350egp</button>
+
+    <button onclick="
+    console.log('This costs 100egp');
+    totalcost+=100;
+    console.log(`Total price = ${totalcost}`);
+
+    " class="pricebtn">100egp</button>
+
+    <button onclick="
+    console.log('This costs 200egp');
+    totalcost+=200;
+    console.log(`Total price = ${totalcost}`);
+    
+    "
+     class="pricebtn">200egp</button>
+
+</div>
+<div class="btns">
+    <button onclick="
+        console.log(`Total price = ${totalcost}`);
+        "
+         class="totalbtn">Total price</button>
+    <button onclick="
+    totalcost=0;
+    console.log(`Total price = ${totalcost}`);
+    " class="cancelbtn">Cancel order</button>
+</div>
+<script>
+    var totalcost=0;
+</script>
+</body>
+</html>
