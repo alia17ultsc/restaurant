@@ -31,17 +31,58 @@
             font-size: 20px;
             background-color: cadetblue;
             margin-right: 5vw;
+            z-index: 3;
         }
         .cancelbtn{
             font-size: 20px;
             background-color:mediumseagreen;
+            z-index: 3;
+        }
+
+        .wholeordercont{
+            position: absolute;
+            left: 5vw;
+        }
+
+        p{
+            font-size: 5vw;
+            margin-right: 1.2vw;
+        }
+        .ordercont{
+            margin-top: 7vh;
+        }
+
+        .totalcont, .ordercont{
+            display: flex;
+            width: 100vw;
+        
+            align-items: center;
+            justify-content: center;
+        }
+        #totalprice{
+            font-size: 4vw;
+        }
+        #order{
+            flex-direction: column;
+  
+        }
+        .dishname{
+
+            font-size: 3vw;
+        }
+
+        .dishcont{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>
 <body>
     <p>Restaurant</p>
 <div class="dishes">
-    <div>
+    <div class="dishcont">
+        <div class="dishname">Chicken</div>
     <img src="pictures/chicken.jpeg" alt="">
     </div>
     <div>
@@ -60,37 +101,60 @@
 <div class="buttons">
     <button class="pricebtn" onclick="
         console.log('This costs 300epg')
-        
+        totalcost+=300;
+    console.log(`Total price = ${totalcost}`);
+    var totalprice=document.getElementById('totalprice');
+    totalprice.innerText=`${totalcost} egp`;
+    var order=document.getElementById('order');
+    /*var item = document.createElement('div');*/
+    order.textContent +=`\n chicken 300egp \n`;
         ">300egp</button>
     <button onclick="
     console.log('This costs 500egp');
     totalcost+=500;
     console.log(`Total price = ${totalcost}`);
+    var totalprice=document.getElementById('totalprice');
+    totalprice.innerText=`${totalcost} egp`;
     " class="pricebtn">500egp</button>
 
     <button onclick="
     console.log('This costs 350egp');
     totalcost+=350;
     console.log(`Total price = ${totalcost}`);
-
+    var totalprice=document.getElementById('totalprice');
+    totalprice.innerText=`${totalcost} egp`;
     " class="pricebtn">350egp</button>
 
     <button onclick="
     console.log('This costs 100egp');
     totalcost+=100;
     console.log(`Total price = ${totalcost}`);
-
+    var totalprice=document.getElementById('totalprice');
+    totalprice.innerText=`${totalcost} egp`;
     " class="pricebtn">100egp</button>
 
     <button onclick="
     console.log('This costs 200egp');
     totalcost+=200;
     console.log(`Total price = ${totalcost}`);
-    
+     var totalprice=document.getElementById('totalprice');
+    totalprice.innerText=`${totalcost} egp`;
     "
      class="pricebtn">200egp</button>
 
 </div>
+
+<div class="wholeordercont">
+    <div class="ordercont">
+        <p>Order:</p>
+        <div id="order"></div>
+    </div>
+    <div class="totalcont">
+        <p>Total:</p>
+        <div id="totalprice">0 egp</div>
+    </div>
+</div>
+
 <div class="btns">
     <button onclick="
         console.log(`Total price = ${totalcost}`);
@@ -99,6 +163,8 @@
     <button onclick="
     totalcost=0;
     console.log(`Total price = ${totalcost}`);
+    var totalprice=document.getElementById('totalprice');
+    totalprice.innerText=`${totalcost} egp`;
     " class="cancelbtn">Cancel order</button>
 </div>
 <script>
