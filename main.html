@@ -42,6 +42,8 @@
         .wholeordercont{
             position: absolute;
             left: 5vw;
+
+
         }
 
         p{
@@ -56,15 +58,17 @@
             display: flex;
             width: 100vw;
         
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
         }
         #totalprice{
+            margin-top: 4vh;
             font-size: 2.5vw;
         }
         #order{
             font-size: 1.8vw;
             flex-direction: column;
+            margin-top: 4vh;
   
         }
         .dishname{
@@ -77,6 +81,7 @@
             align-items: center;
         }
     </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <p>Restaurant</p>
@@ -109,47 +114,15 @@
 
 </div>
 <div class="buttons">
-    <button class="pricebtn" onclick="
-        console.log('This costs 300epg')
-        totalcost+=300;
-    console.log(`Total price = ${totalcost}`);
-    var totalprice=document.getElementById('totalprice');
-    totalprice.innerText=`${totalcost} egp`;
-    var order=document.getElementById('order');
-    /*var item = document.createElement('div');*/
-    order.textContent +=`\n chicken 300egp \n`;
-        ">300egp</button>
-    <button onclick="
-    console.log('This costs 500egp');
-    totalcost+=500;
-    console.log(`Total price = ${totalcost}`);
-    var totalprice=document.getElementById('totalprice');
-    totalprice.innerText=`${totalcost} egp`;
-    " class="pricebtn">500egp</button>
+    <button class="pricebtn" onclick="ordermeal('Chicken', 300)">300egp</button>
 
-    <button onclick="
-    console.log('This costs 350egp');
-    totalcost+=350;
-    console.log(`Total price = ${totalcost}`);
-    var totalprice=document.getElementById('totalprice');
-    totalprice.innerText=`${totalcost} egp`;
-    " class="pricebtn">350egp</button>
+    <button onclick="ordermeal('Steak', 500)" class="pricebtn">500egp</button>
 
-    <button onclick="
-    console.log('This costs 100egp');
-    totalcost+=100;
-    console.log(`Total price = ${totalcost}`);
-    var totalprice=document.getElementById('totalprice');
-    totalprice.innerText=`${totalcost} egp`;
-    " class="pricebtn">100egp</button>
+    <button onclick="ordermeal('Fish', 350)" class="pricebtn">350egp</button>
 
-    <button onclick="
-    console.log('This costs 200egp');
-    totalcost+=200;
-    console.log(`Total price = ${totalcost}`);
-     var totalprice=document.getElementById('totalprice');
-    totalprice.innerText=`${totalcost} egp`;
-    "
+    <button onclick="ordermeal('Greek salad', 100)" class="pricebtn">100egp</button>
+
+    <button onclick="ordermeal('Pasta', 200)"
      class="pricebtn">200egp</button>
 
 </div>
@@ -166,10 +139,8 @@
 </div>
 
 <div class="btns">
-    <button onclick="
-        console.log(`Total price = ${totalcost}`);
-        "
-         class="totalbtn">Total price</button>
+    <button onclick="removeitem()"
+         class="totalbtn">Remove Item</button>
     <button onclick="
     totalcost=0;
     console.log(`Total price = ${totalcost}`);
