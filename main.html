@@ -42,8 +42,6 @@
         .wholeordercont{
             position: absolute;
             left: 5vw;
-
-
         }
 
         p{
@@ -80,6 +78,12 @@
             flex-direction: column;
             align-items: center;
         }
+
+        .dishes2{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 6vh;
+        }
     </style>
     <script src="script.js" defer></script>
 </head>
@@ -111,7 +115,6 @@
         <div class="dishname">Pasta</div>
         <img src="pictures/pasta.jpeg" alt="">
     </div>
-
 </div>
 <div class="buttons">
     <button class="pricebtn" onclick="ordermeal('Chicken', 300)">300egp</button>
@@ -126,6 +129,48 @@
      class="pricebtn">200egp</button>
 
 </div>
+
+<div class="dishes2">
+    <div class="dishcont">
+        <div class="dishname">Sandwich</div>
+        <img src="pictures/sandwich.jpeg" alt="">
+    </div>
+    
+    <div class="dishcont">
+        <div class="dishname">Lasagna</div>
+        <img src="pictures/lasagna.jpeg" alt="">
+    </div>
+
+    <div class="dishcont">
+        <div class="dishname">Pizza</div>
+        <img src="pictures/pizza.jpeg" alt="">
+    </div>
+
+    <div class="dishcont">
+        <div class="dishname">Soup</div>
+        <img src="pictures/soup.jpeg" alt="">
+    </div>
+
+    <div class="dishcont">
+        <div class="dishname">Sushi</div>
+        <img src="pictures/sushi.jpeg" alt="">
+    </div>
+</div>
+
+<div class="buttons">
+    <button class="pricebtn" onclick="ordermeal('Sandwich', 70)">70egp</button>
+
+    <button onclick="ordermeal('Lasagna', 150)" class="pricebtn">150egp</button>
+
+    <button onclick="ordermeal('Pizza', 270)" class="pricebtn">270egp</button>
+
+    <button onclick="ordermeal('Soup', 200)" class="pricebtn">200egp</button>
+
+    <button onclick="ordermeal('Sushi', 500)"
+     class="pricebtn">500egp</button>
+
+</div>
+
 
 <div class="wholeordercont">
     <div class="ordercont">
