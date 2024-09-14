@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
     <style>
+        body{
+            overflow-x: hidden;
+        }
         p{
             font-size: 40px;
             display: flex;
@@ -40,8 +43,10 @@
         }
 
         .wholeordercont{
-            position: absolute;
-            left: 5vw;
+            padding-top: 5vh;
+            padding-bottom: 5vh;
+            display: flex;
+            justify-content: space-evenly;
         }
 
         p{
@@ -49,24 +54,26 @@
             margin-right: 1.2vw;
         }
         .ordercont{
-            margin-top: 7vh;
+            line-height: 1.5em;
+            margin-right: 10vw;
         }
 
+        .totalcont{
+            margin-left: 10vw;
+        }
         .totalcont, .ordercont{
             display: flex;
-            width: 100vw;
-        
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
         }
         #totalprice{
-            margin-top: 4vh;
+            
             font-size: 2.5vw;
         }
         #order{
             font-size: 1.8vw;
             flex-direction: column;
-            margin-top: 4vh;
+            
   
         }
         .dishname{
@@ -84,10 +91,27 @@
             justify-content: space-evenly;
             margin-top: 6vh;
         }
+
+        .homebutton{
+        position: absolute;
+        left: 3vw;
+        top: 2vh;
+        transition: 1s;
+        z-index: 5;
+        
+        }
+
+    .home{
+        width: 5vw;
+    }
+
     </style>
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="homebutton" onclick="window.location.href='index.html'">
+        <img src="pictures/homebtn.png" alt="" class="home">
+    </div>
     <p>Restaurant</p>
 <div class="dishes">
 
@@ -171,18 +195,6 @@
 
 </div>
 
-
-<div class="wholeordercont">
-    <div class="ordercont">
-        <p>Order:</p>
-        <div id="order"></div>
-    </div>
-    <div class="totalcont">
-        <p>Total:</p>
-        <div id="totalprice">0 egp</div>
-    </div>
-</div>
-
 <div class="btns">
     <button onclick="removeitem()"
          class="totalbtn">Remove Item</button>
@@ -191,8 +203,27 @@
     console.log(`Total price = ${totalcost}`);
     var totalprice=document.getElementById('totalprice');
     totalprice.innerText=`${totalcost} egp`;
+    var orderlist=document.getElementById('order');
+    orderlist.innerText='';
+    orderedmeals.length = 0;
+    orderedmealamount.length = 0;
+    orderedmealprice.length = 0;
+    sequenceorder.length = 0;
+    showtotalorder();
     " class="cancelbtn">Cancel order</button>
 </div>
+
+<div class="wholeordercont">
+    <div class="ordercont">
+        <p>Order:</p>
+        <div id="order">nothing in cart</div>
+    </div>
+    <div class="totalcont">
+        <p>Total:</p>
+        <div id="totalprice">0 egp</div>
+    </div>
+</div>
+
 <script>
     var totalcost=0;
 </script>

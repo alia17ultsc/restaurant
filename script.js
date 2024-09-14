@@ -1,11 +1,10 @@
 var orderedmeals=[];
 var orderedmealamount=[];
 var orderedmealprice=[];
-var lastorder="";
+var sequenceorder=[];
 
 
 function ordermeal(mealname, mealprice){
-  lastorder=mealname;
   console.log(`This costs ${mealprice}epg`)
   totalcost+=mealprice;
 console.log(`Total price = ${totalcost}`);
@@ -14,6 +13,7 @@ totalprice.innerText=`${totalcost}egp`;
 var order=document.getElementById('order');
 
 var newmeal=true;
+sequenceorder.push(mealname);
 for (var index=0; index<orderedmeals.length; index++)
 {
   if (orderedmeals[index]==mealname){
@@ -35,16 +35,23 @@ showtotalorder();
 
 function showtotalorder(){
   order.innerText="";
-
+  if (sequenceorder.length==0){
+    order.innerText="nothing in cart";
+    return;
+  }
 for (var index=0; index<orderedmeals.length; index++){
   order.innerText +=` ${orderedmeals[index]} ${orderedmealprice[index]} egp ${orderedmealamount[index]}x\n`;
 }
 }
 
 function removeitem(){
-  if (lastorder==""){
+  if (orderedmeals.length==""){
     return;
   }
+
+  var lastorder=sequenceorder[sequenceorder.length-1];
+   sequenceorder.splice(sequenceorder.length-1);
+
   for (var index=0; index<orderedmeals.length; index++){
     if (lastorder==orderedmeals[index]){
       totalcost-=orderedmealprice[index];
@@ -54,12 +61,13 @@ totalprice.innerText=`${totalcost}egp`;
       {
         orderedmealamount[index]--;
       }
-      else{
+      else{ 
         orderedmeals.splice(index, 1);
         orderedmealamount.splice(index, 1);
         orderedmealprice.splice(index, 1);
       }
     }
+
   }
 
 showtotalorder();
